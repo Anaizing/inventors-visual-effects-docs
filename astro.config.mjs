@@ -7,6 +7,8 @@ import pagefind from "astro-pagefind";
 import icon from "astro-icon";
 import tailwind from "@astrojs/tailwind";
 
+import react from "@astrojs/react";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://astroverse.inote.xyz/",
@@ -14,48 +16,29 @@ export default defineConfig({
   output: "static",
   prefetch: {
     prefetchAll: true,
-    defaultStrategy: "viewport",
+    defaultStrategy: "viewport"
   },
   experimental: {
-    contentCollectionCache: true,
+    contentCollectionCache: true
   },
   image: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "*.unsplash.com",
-      },
-    ],
+    remotePatterns: [{
+      protocol: "https",
+      hostname: "*.unsplash.com"
+    }]
   },
   markdown: {
-    remarkPlugins: [remarkModifiedTime],
+    remarkPlugins: [remarkModifiedTime]
   },
-  integrations: [
-    mdx(),
-    sitemap(),
-    pagefind(),
-    partytown({
-      config: {
-        forward: ["dataLayer.push"],
-        debug: false,
-      },
-    }),
-    icon({
-      include: {
-        tabler: ["*"],
-        "flat-color-icons": [
-          "template",
-          "gallery",
-          "approval",
-          "document",
-          "advertising",
-          "currency-exchange",
-          "voice-presentation",
-          "business-contact",
-          "database",
-        ],
-      },
-    }),
-    tailwind(),
-  ],
+  integrations: [mdx(), sitemap(), pagefind(), partytown({
+    config: {
+      forward: ["dataLayer.push"],
+      debug: false
+    }
+  }), icon({
+    include: {
+      tabler: ["*"],
+      "flat-color-icons": ["template", "gallery", "approval", "document", "advertising", "currency-exchange", "voice-presentation", "business-contact", "database"]
+    }
+  }), tailwind(), react()]
 });
