@@ -3,7 +3,7 @@
 
 // Base Page Metadata, src/layouts/BaseLayout.astro
 export const BRAND_NAME = "AstroVerse";
-export const SITE_TITLE = "AstroVerse";
+export const SITE_TITLE = "SOGGY INK GAMES";
 export const SITE_DESCRIPTION = "An Astro Theme for Visual Storytelling";
 
 // Tags Page Metadata, src/pages/tags/index.astro
