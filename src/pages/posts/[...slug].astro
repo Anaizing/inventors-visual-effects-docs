@@ -4,6 +4,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import RelatedPostsCard from "@components/RelatedPostsCard.astro";
 import FormattedDate from "@components/FormattedDate.astro";
 import OptimizedCover from "@components/OptimizedPicture.astro";
+import {WebGLRenderer} from "@components/WebglUnity";
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
@@ -33,6 +34,9 @@ const { Content } = await post.render();
         </div>
         <div>
           <Content />
+        </div>
+        <div>
+          <WebGLRenderer />
         </div>
         <div class="prose-a:no-underline">
           {
